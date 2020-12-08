@@ -13,7 +13,7 @@ Add the `grumphp` entry to the `extra` section of your `composer.json`.
 
 ```json
 "grumphp": {
-    "config-default-path": "vendor/district09/qa-php/configs/grumphp-site.yml"
+    "config-default-path": "vendor/district09/qa-php/configs/grumphp.yml"
 }
 ```
 

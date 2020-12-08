@@ -9,7 +9,10 @@
 >
     <description>PHP Mess Detection ruleset for PHP projects.</description>
 
-    <rule ref="rulesets/cleancode.xml" />
+    <rule ref="rulesets/cleancode.xml">
+        <!-- Allow static access for named constructors. -->
+        <exclude name="StaticAccess" />
+    </rule>
     <rule ref="rulesets/codesize.xml" />
     <rule ref="rulesets/controversial.xml" />
     <rule ref="rulesets/design.xml" />
