@@ -20,7 +20,7 @@ Add the `grumphp` entry to the `extra` section of your `composer.json`.
 Add the qa-php package as dev requirement:
 
 ```bash
-composer require --dev digipolisgent/qa-php:^1.0
+composer require --dev district09/qa-php:^1.0
 ```
 
 ## Configuration
