@@ -1,7 +1,14 @@
 {
     "name": "district09/qa-php",
     "description": "Quality Assurance tools and configuration for PHP projects and packages.",
+    "keywords": [
+        "district09",
+        "qa",
+        "php"
+    ],
     "type": "library",
+    "homepage": "https://github.com/digipolisgent/php_package_qa-php",
+    "license": "MIT",
     "authors": [
         {
             "name": "Matthijs Van Assche",
@@ -21,7 +28,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Digipolisgent\\QA\\PHP\\": "src/"
+            "District09\\QA\\PHP\\": "src/"
         }
     },
     "require": {
@@ -29,7 +36,6 @@
         "ergebnis/composer-normalize": "^2.8",
         "irstea/phpcpd-shim": "^6.0",
         "irstea/phpmd-shim": "^2.9",
-        "mglaman/phpstan-drupal": "^0.12.6",
         "nette/neon": "^3.2",
         "phpro/grumphp-shim": "^1.1",
         "phpspec/prophecy": "^1.10",
