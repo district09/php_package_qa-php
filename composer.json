@@ -1,0 +1,47 @@
+{
+    "name": "district09/qa-php",
+    "description": "Quality Assurance tools and configuration for PHP projects and packages.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Matthijs Van Assche",
+            "email": "matthijs.vanassche@digipolis.gent",
+            "role": "developer"
+        },
+        {
+            "name": "Maarten Segers",
+            "email": "maarten.segers@digipolis.gent",
+            "role": "developer"
+        },
+        {
+            "name": "Peter Decuyper",
+            "email": "peter.decuyper@digipolis.gent",
+            "role": "developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Digipolisgent\\QA\\PHP\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.3",
+        "ergebnis/composer-normalize": "^2.8",
+        "irstea/phpcpd-shim": "^6.0",
+        "irstea/phpmd-shim": "^2.9",
+        "mglaman/phpstan-drupal": "^0.12.6",
+        "nette/neon": "^3.2",
+        "phpro/grumphp-shim": "^1.1",
+        "phpspec/prophecy": "^1.10",
+        "phpstan/phpstan": "^0.12.6",
+        "phpstan/phpstan-deprecation-rules": "^0.12.5",
+        "phpunit/phpunit": "^9",
+        "squizlabs/php_codesniffer": "^3.5.6",
+        "symfony/filesystem": "^5.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
