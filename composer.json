@@ -26,6 +26,11 @@
             "role": "developer"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "District09\\QA\\PHP\\": "src/"
@@ -39,15 +44,11 @@
         "nette/neon": "^3.2",
         "phpro/grumphp-shim": "^1.1",
         "phpspec/prophecy": "^1.10",
+        "phpspec/prophecy-phpunit": "^2.0",
         "phpstan/phpstan": "^0.12.6",
         "phpstan/phpstan-deprecation-rules": "^0.12.5",
         "phpunit/phpunit": "^9",
         "squizlabs/php_codesniffer": "^3.5.6",
         "symfony/filesystem": "^5.2"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "sort-packages": true
     }
 }
