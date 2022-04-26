@@ -29,7 +29,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpro/grumphp-shim": true
+        }
     },
     "autoload": {
         "psr-4": {
@@ -37,18 +41,18 @@
         }
     },
     "require": {
-        "php": ">=7.3",
+        "php": "^7.4|^8.0",
         "ergebnis/composer-normalize": "^2.8",
-        "irstea/phpcpd-shim": "^6.0",
-        "irstea/phpmd-shim": "^2.9",
         "nette/neon": "^3.2",
+        "phpmd/phpmd": "^2.11",
         "phpro/grumphp-shim": "^1.1",
         "phpspec/prophecy": "^1.10",
         "phpspec/prophecy-phpunit": "^2.0",
-        "phpstan/phpstan": "^0.12.6",
-        "phpstan/phpstan-deprecation-rules": "^0.12.5",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpunit/phpunit": "^9",
         "squizlabs/php_codesniffer": "^3.5.6",
+        "sebastian/phpcpd": "^6.0",
         "symfony/filesystem": "^5.2"
     }
 }
