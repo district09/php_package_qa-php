@@ -2,6 +2,20 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [1.1.0]
+
+### Added
+
+- Add support for PHP 8.x
+
+### Changed
+
+- Change minimal PHP version to 7.4.x
+
+### Updated
+
+- Update minimal package versions.
+
 ## [1.0.0]
 
 ### Added
