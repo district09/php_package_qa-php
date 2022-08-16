@@ -42,6 +42,7 @@
     },
     "require": {
         "php": "^7.4|^8.0",
+        "enlightn/security-checker": "^1.4",
         "ergebnis/composer-normalize": "^2.8",
         "nette/neon": "^3.2",
         "phpmd/phpmd": "^2.11",
