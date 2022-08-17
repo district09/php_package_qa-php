@@ -45,6 +45,7 @@
         "enlightn/security-checker": "^1.4",
         "ergebnis/composer-normalize": "^2.8",
         "nette/neon": "^3.2",
+        "phpcompatibility/php-compatibility": "^9.3",
         "phpmd/phpmd": "^2.11",
         "phpro/grumphp-shim": "^1.1",
         "phpspec/prophecy": "^1.10",
