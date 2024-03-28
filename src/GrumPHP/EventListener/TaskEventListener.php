@@ -82,6 +82,16 @@ final class TaskEventListener
                 $info['filename'],
                 $info['extension']
             ),
+            $keyPrefix . 'EXT_DIST' => sprintf(
+                '%s.%s.dist',
+                $info['filename'],
+                $info['extension']
+            ),
+            $keyPrefix . 'DIST_EXT' => sprintf(
+                '%s.dist.%s',
+                $info['filename'],
+                $info['extension']
+            ),
             $keyPrefix . 'GLOBAL' => sprintf(
                 '%s%s.%s',
                 $packagePath,
