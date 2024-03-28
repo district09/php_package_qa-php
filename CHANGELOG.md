@@ -19,6 +19,7 @@ All Notable changes to the **Quality Assurance - PHP** package.
 ### Updated
 
 - Update GrumPHP to 2.x.
+- Update security-checker package to 2.x.
 
 ## [1.1.0]
 
