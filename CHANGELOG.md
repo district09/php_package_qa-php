@@ -2,6 +2,25 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [Unreleased]
+
+### Added
+
+- Add support for .dist files in the project.
+
+### Changed
+
+- Changed minimal PHP version to 8.1.
+
+### Fixed
+
+- Fix merging configs when both have same string keys.
+
+### Updated
+
+- Update GrumPHP to 2.x.
+- Update security-checker package to 2.x.
+
 ## [1.1.0]
 
 ### Added
