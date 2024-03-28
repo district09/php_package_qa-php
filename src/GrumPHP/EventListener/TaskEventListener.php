@@ -82,6 +82,16 @@ final class TaskEventListener
                 $info['filename'],
                 $info['extension']
             ),
+            $keyPrefix . 'EXT_DIST' => sprintf(
+                '%s.%s.dist',
+                $info['filename'],
+                $info['extension']
+            ),
+            $keyPrefix . 'DIST_EXT' => sprintf(
+                '%s.dist.%s',
+                $info['filename'],
+                $info['extension']
+            ),
             $keyPrefix . 'GLOBAL' => sprintf(
                 '%s%s.%s',
                 $packagePath,
@@ -113,7 +123,8 @@ final class TaskEventListener
             if ($dataMerged === null) {
                 $dataMerged = $data;
             } elseif ($data) {
-                $dataMerged = array_merge_recursive($data, $dataMerged);
+                $beforeMerged = $dataMerged;
+                $dataMerged = $this->arrayMergeRecursiveDistinct($data, $dataMerged);
             }
         }
 
@@ -200,5 +211,37 @@ final class TaskEventListener
 
         $filesystem = new Filesystem();
         $filesystem->dumpFile($file, $rawData);
+    }
+
+    /**
+     * Merge array recursive but keep distinct string keys.
+     *
+     * array_merge_recursive does indeed merge arrays, but it converts values
+     * with duplicate keys to arrays rather than overwriting the value in the
+     * first array with the duplicate value in the second array, as array_merge
+     * does.
+     *
+     * @param array $array1
+     *   The array to merge data with.
+     * @param array $array2
+     *   The array to merge data from.
+     *
+     * @return array
+     *   The merged arrays.
+     *
+     * @see https://www.php.net/manual/en/function.array-merge-recursive.php#92195
+     */
+    private function arrayMergeRecursiveDistinct(array $array1, array $array2): array
+    {
+        foreach ($array2 as $key => $value ) {
+            if (is_array($value) && isset($array1[$key]) && is_array($array1[$key])) {
+                $array1[$key] = $this->arrayMergeRecursiveDistinct($array1[$key], $value);
+                continue;
+            }
+
+            $array1[$key] = $value;
+        }
+
+        return $array1;
     }
 }
