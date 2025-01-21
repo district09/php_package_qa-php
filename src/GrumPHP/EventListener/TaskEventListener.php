@@ -170,7 +170,7 @@ final class TaskEventListener
      * @return array|false
      *   The configuration data or false if not supported.
      */
-    private function readTaskConfigFile(string $type, string $file)
+    private function readTaskConfigFile(string $type, string $file): array|bool
     {
         switch ($type) {
             case self::FILETYPE_YAML:
@@ -233,7 +233,7 @@ final class TaskEventListener
      */
     private function arrayMergeRecursiveDistinct(array $array1, array $array2): array
     {
-        foreach ($array2 as $key => $value ) {
+        foreach ($array2 as $key => $value) {
             if (is_array($value) && isset($array1[$key]) && is_array($array1[$key])) {
                 $array1[$key] = $this->arrayMergeRecursiveDistinct($array1[$key], $value);
                 continue;
