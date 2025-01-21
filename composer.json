@@ -32,7 +32,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
-            "phpro/grumphp-shim": true
+            "phpro/grumphp-shim": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "autoload": {
@@ -54,6 +55,7 @@
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpunit/phpunit": "^9",
         "sebastian/phpcpd": "^6.0",
+        "slevomat/coding-standard": "^8.15",
         "squizlabs/php_codesniffer": "^3.5.6",
         "symfony/filesystem": "^5.2|^6.0|^7.0"
     }
