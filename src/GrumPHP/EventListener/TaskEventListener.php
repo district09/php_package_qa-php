@@ -27,6 +27,12 @@ final class TaskEventListener
     private const FILETYPE_NEON = 'neon';
 
     /**
+     * Blockmode for Neon::encode()
+     * Neon::BLOCK is deprecated, we need to use the `$blockMode` parameter.
+     */
+    private const BLOCK_MODE = true;
+
+    /**
      * Mapping of task types and their configuration files.
      *
      * @var array
@@ -201,7 +207,7 @@ final class TaskEventListener
                 break;
 
             case self::FILETYPE_NEON:
-                $rawData = Neon::encode($data, Neon::BLOCK);
+                $rawData = Neon::encode($data, self::BLOCK_MODE);
                 break;
 
             default:
