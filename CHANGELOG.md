@@ -2,6 +2,12 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [Unreleased]
+
+### Added
+
+- Add Unused use statement rule to PHPCS checks.
+
 ## [2.0.0]
 
 ### Added

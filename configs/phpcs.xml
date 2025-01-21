@@ -13,4 +13,7 @@
     <arg value="np"/>
 
     <rule ref="PSR12"></rule>
+
+    <!-- Extra rules not included in PSR12. -->
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
 </ruleset>
