@@ -108,7 +108,7 @@ final class TaskEventListener
 
         // Search for the candidates and merge or copy them.
         $filesystem = new Filesystem();
-        $dataMerged = null;
+        $dataMerged = [];
 
         foreach ($candidates as $env_var => $file) {
             // Ignore if configured to skip or if the file is missing.
@@ -125,13 +125,7 @@ final class TaskEventListener
                 return;
             }
 
-            // Merge the data.
-            if ($dataMerged === null) {
-                $dataMerged = $data;
-            } elseif ($data) {
-                $beforeMerged = $dataMerged;
-                $dataMerged = $this->arrayMergeRecursiveDistinct($data, $dataMerged);
-            }
+            $dataMerged = $this->arrayMergeRecursiveDistinct($data, $dataMerged);
         }
 
         // Save the configuration file.
