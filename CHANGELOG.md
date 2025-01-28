@@ -7,6 +7,7 @@ All Notable changes to the **Quality Assurance - PHP** package.
 ### Added
 
 - Add Unused use statement rule to PHPCS checks.
+- 'Revert' is now a valid start of a commit message.
 
 ## [2.0.0]
 
