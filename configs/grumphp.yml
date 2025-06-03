@@ -56,6 +56,7 @@ grumphp:
         phpcpd:
             exclude:
                 - build
+                - var
                 - examples
                 - tests
                 - vendor

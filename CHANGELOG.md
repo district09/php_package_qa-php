@@ -10,6 +10,10 @@ All Notable changes to the **Quality Assurance - PHP** package.
 - Add phpstan 2.x support.
 - Add systemsdk/phpcpd.
 
+### Updated
+
+- Updated grumphp config.
+
 ### Removed
 
 - Removed sebiastian/phpcpd.
