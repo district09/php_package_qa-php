@@ -80,7 +80,6 @@ grumphp:
                 - inc
                 - js
                 - php
-                - yml
         phpmd:
             ruleset:
                 - phpmd.qa-php.xml
