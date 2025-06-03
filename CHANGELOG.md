@@ -2,7 +2,19 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
-## [Unreleased]
+## [2.2.0]
+
+### Added
+
+- Add phpunit 10, 11 and 12 support.
+- Add phpstan 2.x support.
+- Add systemsdk/phpcpd.
+
+### Removed
+
+- Removed sebiastian/phpcpd.
+
+## [2.1.0]
 
 ### Added
 
@@ -53,6 +65,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[2.2.0]: https://github.com/district09/php_package_qa-php/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/district09/php_package_qa-php/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/district09/php_package_qa-php/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/district09/php_package_qa-php/compare/1.0.1...1.1.0
