@@ -80,7 +80,6 @@ grumphp:
                 - inc
                 - js
                 - php
-                - twig
                 - yml
         phpmd:
             ruleset:
