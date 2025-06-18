@@ -27,6 +27,12 @@ final class TaskEventListener
     private const FILETYPE_NEON = 'neon';
 
     /**
+     * Blockmode for Neon::encode()
+     * Neon::BLOCK is deprecated, we need to use the `$blockMode` parameter.
+     */
+    private const BLOCK_MODE = true;
+
+    /**
      * Mapping of task types and their configuration files.
      *
      * @var array
@@ -102,7 +108,7 @@ final class TaskEventListener
 
         // Search for the candidates and merge or copy them.
         $filesystem = new Filesystem();
-        $dataMerged = null;
+        $dataMerged = [];
 
         foreach ($candidates as $env_var => $file) {
             // Ignore if configured to skip or if the file is missing.
@@ -119,13 +125,7 @@ final class TaskEventListener
                 return;
             }
 
-            // Merge the data.
-            if ($dataMerged === null) {
-                $dataMerged = $data;
-            } elseif ($data) {
-                $beforeMerged = $dataMerged;
-                $dataMerged = $this->arrayMergeRecursiveDistinct($data, $dataMerged);
-            }
+            $dataMerged = $this->arrayMergeRecursiveDistinct($data, $dataMerged);
         }
 
         // Save the configuration file.
@@ -170,7 +170,7 @@ final class TaskEventListener
      * @return array|false
      *   The configuration data or false if not supported.
      */
-    private function readTaskConfigFile(string $type, string $file)
+    private function readTaskConfigFile(string $type, string $file): array|bool
     {
         switch ($type) {
             case self::FILETYPE_YAML:
@@ -201,7 +201,7 @@ final class TaskEventListener
                 break;
 
             case self::FILETYPE_NEON:
-                $rawData = Neon::encode($data, Neon::BLOCK);
+                $rawData = Neon::encode($data, self::BLOCK_MODE);
                 break;
 
             default:
@@ -233,7 +233,7 @@ final class TaskEventListener
      */
     private function arrayMergeRecursiveDistinct(array $array1, array $array2): array
     {
-        foreach ($array2 as $key => $value ) {
+        foreach ($array2 as $key => $value) {
             if (is_array($value) && isset($array1[$key]) && is_array($array1[$key])) {
                 $array1[$key] = $this->arrayMergeRecursiveDistinct($array1[$key], $value);
                 continue;
