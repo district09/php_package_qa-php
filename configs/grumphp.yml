@@ -56,6 +56,7 @@ grumphp:
         phpcpd:
             exclude:
                 - build
+                - var
                 - examples
                 - tests
                 - vendor
@@ -79,8 +80,6 @@ grumphp:
                 - inc
                 - js
                 - php
-                - twig
-                - yml
         phpmd:
             ruleset:
                 - phpmd.qa-php.xml
