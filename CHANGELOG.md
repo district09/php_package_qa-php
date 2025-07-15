@@ -2,6 +2,12 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [2.2.1]
+
+### Added
+
+- Add phpstan-deprecation-rules 2.0 support.
+
 ## [2.2.0]
 
 ### Added
@@ -69,6 +75,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[2.2.1]: https://github.com/district09/php_package_qa-php/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/district09/php_package_qa-php/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/district09/php_package_qa-php/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/district09/php_package_qa-php/compare/1.1.0...2.0.0
