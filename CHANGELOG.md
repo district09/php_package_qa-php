@@ -2,6 +2,13 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [3.0.1]
+
+### Fixed
+
+- Updated PHP_CodeSniffer to 4.0 and PHPCompatibility to the 10.0 alpha line,
+  allowing installation alongside packages that require current Drupal Coder.
+
 ## [3.0.0]
 
 ### Changed
@@ -91,6 +98,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[3.0.1]: https://github.com/district09/php_package_qa-php/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/district09/php_package_qa-php/compare/2.2.1...3.0.0
 [2.2.1]: https://github.com/district09/php_package_qa-php/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/district09/php_package_qa-php/compare/2.1.0...2.2.0
