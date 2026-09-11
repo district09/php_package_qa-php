@@ -2,6 +2,15 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [3.0.2]
+
+### Fixed
+
+- Added Symfony Filesystem 8 support for Drupal 12 and other Symfony 8
+  consumers.
+- Allowed PHPMD 3 and PDepend 3 development dependencies for Symfony 8
+  consumers; PHP 8.3 projects continue to resolve their stable 2.x releases.
+
 ## [3.0.1]
 
 ### Fixed
@@ -98,6 +107,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[3.0.2]: https://github.com/district09/php_package_qa-php/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/district09/php_package_qa-php/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/district09/php_package_qa-php/compare/2.2.1...3.0.0
 [2.2.1]: https://github.com/district09/php_package_qa-php/compare/2.2.0...2.2.1
