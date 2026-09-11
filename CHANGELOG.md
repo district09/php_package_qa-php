@@ -2,6 +2,13 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [3.0.3]
+
+### Fixed
+
+- Replaced Enlightn Security Checker with GrumPHP's native Composer audit task,
+  allowing installation with Symfony 8.
+
 ## [3.0.2]
 
 ### Fixed
@@ -107,6 +114,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[3.0.3]: https://github.com/district09/php_package_qa-php/compare/3.0.2...3.0.3
 [3.0.2]: https://github.com/district09/php_package_qa-php/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/district09/php_package_qa-php/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/district09/php_package_qa-php/compare/2.2.1...3.0.0

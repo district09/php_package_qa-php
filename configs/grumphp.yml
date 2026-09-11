@@ -24,7 +24,7 @@ grumphp:
                 - phpcs
                 - phpmd
                 - phpstan
-                - securitychecker_enlightn
+                - securitychecker_composeraudit
                 - yamllint
         tests:
             tasks:
@@ -101,8 +101,8 @@ grumphp:
                 - php
         phpunit:
             config_file: phpunit.qa-php.xml
-        securitychecker_enlightn:
-            lockfile: ./composer.lock
+        securitychecker_composeraudit:
+            locked: true
             run_always: false
         yamllint:
             ignore_patterns:
