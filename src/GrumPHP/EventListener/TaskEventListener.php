@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace District09\QA\PHP\GrumPHP\EventListener;
 
+use District09\QA\PHP\GrumPHP\PhpunitConfigResolver;
 use GrumPHP\Event\TaskEvent;
 use GrumPHP\Task\Phpcs;
 use GrumPHP\Task\PhpMd;
@@ -11,6 +12,7 @@ use GrumPHP\Task\PhpStan;
 use GrumPHP\Task\Phpunit;
 use GrumPHP\Task\TaskInterface;
 use Nette\Neon\Neon;
+use PHPUnit\Runner\Version;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 
@@ -65,6 +67,8 @@ final class TaskEventListener
      *
      * @param TaskEvent $event
      *   The GrumPHP task event.
+     *
+     * @SuppressWarnings("PHPMD.Superglobals")
      */
     public function createTaskConfig(TaskEvent $event): void
     {
@@ -98,21 +102,16 @@ final class TaskEventListener
                 $info['filename'],
                 $info['extension']
             ),
-            $keyPrefix . 'GLOBAL' => sprintf(
-                '%s%s.%s',
-                $packagePath,
-                $info['filename'],
-                $info['extension']
-            ),
+            $keyPrefix . 'GLOBAL' => $this->getGlobalConfigFile($info, $packagePath),
         ];
 
         // Search for the candidates and merge or copy them.
         $filesystem = new Filesystem();
         $dataMerged = [];
 
-        foreach ($candidates as $env_var => $file) {
+        foreach ($candidates as $envVar => $file) {
             // Ignore if configured to skip or if the file is missing.
-            if (!empty($_SERVER[$env_var]) || !$filesystem->exists($file)) {
+            if (!empty($GLOBALS['_SERVER'][$envVar]) || !$filesystem->exists($file)) {
                 continue;
             }
 
@@ -160,6 +159,25 @@ final class TaskEventListener
     }
 
     /**
+     * Gets the global configuration file for a GrumPHP task.
+     *
+     * @param array $info
+     *   The task configuration information.
+     * @param string $packagePath
+     *   The bundled configuration directory.
+     */
+    private function getGlobalConfigFile(array $info, string $packagePath): string
+    {
+        if ($info['filename'] === 'phpunit') {
+            $filename = PhpunitConfigResolver::resolve(Version::majorVersionNumber());
+
+            return $packagePath . $filename;
+        }
+
+        return sprintf('%s%s.%s', $packagePath, $info['filename'], $info['extension']);
+    }
+
+    /**
      * Read and parse a task configuration file.
      *
      * @param string $type
@@ -190,7 +208,7 @@ final class TaskEventListener
      *   The file type.
      * @param string $file
      *   Path to the file.
-     * @param array|null $data
+     * @param array $data
      *   The configuration data.
      */
     private function writeTaskConfigFile(string $type, string $file, array $data): void

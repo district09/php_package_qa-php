@@ -20,8 +20,10 @@ Add the `grumphp` entry to the `extra` section of your `composer.json`.
 Add the qa-php package as dev requirement:
 
 ```bash
-composer require --dev district09/qa-php:^2.0
+composer require --dev district09/qa-php:^3.0
 ```
+
+QA PHP 3 requires PHP 8.3 or later and supports PHPUnit 11.5 and 12.5.
 
 ## Configuration
 
@@ -98,7 +100,11 @@ file:
 
 Running PHPUnit with coverage report is time consuming. You can locally speed up
 PHPUnit by copying the generated `phpunit.qa-php.xml` file to
-`phpunit.local.xml` and remove the `<coverage>` section from it.
+`phpunit.local.xml` and removing the `<coverage>` section from it.
+
+The generated configuration automatically uses the appropriate XML schema for
+PHPUnit 11.5 or 12.5. Do not add a project-level `phpunit.xml` only to update
+the PHPUnit schema; remove such overrides when upgrading to QA PHP 3.
 
 ## Run GrumPHP
 
@@ -143,5 +149,5 @@ Configure the paths to these files in PHPStorm:
 In order to check php compatibility you can use the phpcs `PHPCompatibility` sniff:
 
 ```bash
-php vendor/bin/phpcs -p --ignore="*/vendor/*" --extensions=php,inc,module,install,theme --runtime-set testVersion 8.1 --standard=PHPCompatibility ./
+php vendor/bin/phpcs -p --ignore="*/vendor/*" --extensions=php,inc,module,install,theme --runtime-set testVersion 8.3 --standard=PHPCompatibility ./
 ```

@@ -1,14 +1,13 @@
 {
     "name": "district09/qa-php",
     "description": "Quality Assurance tools and configuration for PHP projects and packages.",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "district09",
         "qa",
         "php"
     ],
-    "type": "library",
-    "homepage": "https://github.com/digipolisgent/php_package_qa-php",
-    "license": "MIT",
     "authors": [
         {
             "name": "Matthijs Van Assche",
@@ -26,37 +25,48 @@
             "role": "developer"
         }
     ],
+    "homepage": "https://github.com/digipolisgent/php_package_qa-php",
+    "require": {
+        "php": "^8.3",
+        "enlightn/security-checker": "^2.0",
+        "ergebnis/composer-normalize": "^2.53",
+        "nette/neon": "^3.4",
+        "phpcompatibility/php-compatibility": "^9.3.5",
+        "phpmd/phpmd": "^2.15",
+        "phpro/grumphp-shim": "^2.23",
+        "phpspec/prophecy": "^1.26",
+        "phpspec/prophecy-phpunit": "^2.5",
+        "phpstan/phpstan": "^2.2",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpunit/phpunit": "^11.5 || ^12.5",
+        "slevomat/coding-standard": "^8.22",
+        "squizlabs/php_codesniffer": "^3.13.6",
+        "symfony/filesystem": "^6.4 || ^7.0",
+        "systemsdk/phpcpd": "^8.0 || ^9.0"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true,
-            "phpro/grumphp-shim": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
     "autoload": {
         "psr-4": {
             "District09\\QA\\PHP\\": "src/"
         }
     },
-    "require": {
-        "php": "^8.1",
-        "enlightn/security-checker": "^1.4|^2.0",
-        "ergebnis/composer-normalize": "^2.8",
-        "nette/neon": "^3.2",
-        "phpcompatibility/php-compatibility": "^9.3",
-        "phpmd/phpmd": "^2.11",
-        "phpro/grumphp-shim": "^2.0",
-        "phpspec/prophecy": "^1.10",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "phpstan/phpstan": "^1.0 || ^2.0",
-        "phpstan/phpstan-deprecation-rules": "^1.0 || ^2.0",
-        "phpunit/phpunit": "^9 || ^10 || ^11 || ^12",
-        "slevomat/coding-standard": "^8.15",
-        "squizlabs/php_codesniffer": "^3.5.6",
-        "symfony/filesystem": "^5.2|^6.0|^7.0",
-        "systemsdk/phpcpd": "^7.0 || ^8.0"
+    "autoload-dev": {
+        "psr-4": {
+            "District09\\QA\\PHP\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "phpro/grumphp-shim": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "grumphp": {
+            "config-default-path": "configs/grumphp.yml"
+        }
     }
 }
