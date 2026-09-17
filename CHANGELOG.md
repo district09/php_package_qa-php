@@ -2,6 +2,14 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [3.0.4]
+
+### Fixed
+
+- Removed QA PHP's internal PHPStan stubs from the distributed configuration,
+  so consuming packages no longer need a `stubs` directory.
+- Declared Symfony YAML directly because the configuration merger uses it.
+
 ## [3.0.3]
 
 ### Fixed
@@ -114,6 +122,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[3.0.4]: https://github.com/district09/php_package_qa-php/compare/3.0.3...3.0.4
 [3.0.3]: https://github.com/district09/php_package_qa-php/compare/3.0.2...3.0.3
 [3.0.2]: https://github.com/district09/php_package_qa-php/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/district09/php_package_qa-php/compare/3.0.0...3.0.1
