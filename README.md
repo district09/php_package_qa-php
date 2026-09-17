@@ -24,6 +24,7 @@ composer require --dev district09/qa-php:^3.0
 ```
 
 QA PHP 3 requires PHP 8.3 or later and supports PHPUnit 11.5 and 12.5.
+PHP source files in an `examples/` directory are checked by PHPCS by default.
 
 ## Configuration
 
