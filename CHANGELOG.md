@@ -2,6 +2,14 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [3.1.0]
+
+### Changed
+
+- Check shipped PHP examples with PHPCS. This prevents example-only changes
+  from producing an empty PHPCS file list and makes the default QA scope
+  consistent with PHPStan.
+
 ## [3.0.4]
 
 ### Fixed
@@ -122,6 +130,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[3.1.0]: https://github.com/district09/php_package_qa-php/compare/3.0.4...3.1.0
 [3.0.4]: https://github.com/district09/php_package_qa-php/compare/3.0.3...3.0.4
 [3.0.3]: https://github.com/district09/php_package_qa-php/compare/3.0.2...3.0.3
 [3.0.2]: https://github.com/district09/php_package_qa-php/compare/3.0.1...3.0.2

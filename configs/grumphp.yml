@@ -73,8 +73,7 @@ grumphp:
             report_width: 120
             ignore_patterns:
                 - build/
-                - examples/
-                - vendor/
+                - ./vendor/*
             triggered_by:
                 - css
                 - inc
