@@ -42,6 +42,7 @@
         "slevomat/coding-standard": "^8.25.1",
         "squizlabs/php_codesniffer": "^4.0.1",
         "symfony/filesystem": "^6.4 || ^7.0 || ^8.0",
+        "symfony/yaml": "^6.4 || ^7.0 || ^8.0",
         "systemsdk/phpcpd": "^8.0 || ^9.0"
     },
     "prefer-stable": true,
