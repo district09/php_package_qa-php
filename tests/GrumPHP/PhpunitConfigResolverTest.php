@@ -9,10 +9,33 @@ use LogicException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Runner\Version;
 
 #[CoversClass(PhpunitConfigResolver::class)]
 final class PhpunitConfigResolverTest extends TestCase
 {
+    /**
+     * Tests resolving the PHPUnit major from Composer's installed packages.
+     */
+    public function testInstalledMajorVersionMatchesProjectRunner(): void
+    {
+        self::assertSame(
+            Version::majorVersionNumber(),
+            PhpunitConfigResolver::installedMajorVersion(),
+        );
+    }
+
+    /**
+     * Tests resolving the configuration for the installed PHPUnit runner.
+     */
+    public function testResolveInstalled(): void
+    {
+        self::assertSame(
+            PhpunitConfigResolver::resolve(Version::majorVersionNumber()),
+            PhpunitConfigResolver::resolveInstalled(),
+        );
+    }
+
     /**
      * Tests resolving the bundled configuration for supported PHPUnit versions.
      */

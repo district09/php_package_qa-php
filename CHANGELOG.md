@@ -2,6 +2,17 @@
 
 All Notable changes to the **Quality Assurance - PHP** package.
 
+## [3.1.1]
+
+### Fixed
+
+- Select the PHPUnit configuration from the consumer project's Composer
+  metadata instead of the PHPUnit version loaded by the GrumPHP PHAR. This
+  ensures PHPUnit 12 consumers receive the PHPUnit 12 configuration.
+- Add the bundled GrumPHP API stubs to generated PHPStan configurations so
+  PHPStan can analyse QA PHP's GrumPHP event listener without requiring
+  consumers to provide those PHAR-only classes.
+
 ## [3.1.0]
 
 ### Changed
@@ -130,6 +141,7 @@ Initial setup of the qa-php package:
 - Add support for PHP 7.3+
 - Add support for PHP 8.0+
 
+[3.1.1]: https://github.com/district09/php_package_qa-php/compare/3.1.0...3.1.1
 [3.1.0]: https://github.com/district09/php_package_qa-php/compare/3.0.4...3.1.0
 [3.0.4]: https://github.com/district09/php_package_qa-php/compare/3.0.3...3.0.4
 [3.0.3]: https://github.com/district09/php_package_qa-php/compare/3.0.2...3.0.3
