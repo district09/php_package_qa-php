@@ -12,7 +12,6 @@ use GrumPHP\Task\PhpStan;
 use GrumPHP\Task\Phpunit;
 use GrumPHP\Task\TaskInterface;
 use Nette\Neon\Neon;
-use PHPUnit\Runner\Version;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 
@@ -127,6 +126,10 @@ final class TaskEventListener
             $dataMerged = $this->arrayMergeRecursiveDistinct($data, $dataMerged);
         }
 
+        if ($info['filename'] === 'phpstan') {
+            $dataMerged = $this->addPhpstanStubs($dataMerged, $packagePath);
+        }
+
         // Save the configuration file.
         $this->writeTaskConfigFile($info['type'], $info['grumphp'], $dataMerged);
     }
@@ -169,7 +172,7 @@ final class TaskEventListener
     private function getGlobalConfigFile(array $info, string $packagePath): string
     {
         if ($info['filename'] === 'phpunit') {
-            $filename = PhpunitConfigResolver::resolve(Version::majorVersionNumber());
+            $filename = PhpunitConfigResolver::resolveInstalled();
 
             return $packagePath . $filename;
         }
@@ -229,6 +232,38 @@ final class TaskEventListener
 
         $filesystem = new Filesystem();
         $filesystem->dumpFile($file, $rawData);
+    }
+
+    /**
+     * Adds the GrumPHP API stubs required by PHPStan.
+     *
+     * GrumPHP is provided as a PHAR, so its classes are unavailable to
+     * PHPStan through Composer's installed package metadata. The generated
+     * configuration must therefore reference the stubs from this installed
+     * package, rather than from the consuming project's working directory.
+     *
+     * @param array $data
+     *   The merged PHPStan configuration.
+     * @param string $packagePath
+     *   The package configuration directory.
+     *
+     * @return array
+     *   The PHPStan configuration with the required scanned files.
+     */
+    private function addPhpstanStubs(array $data, string $packagePath): array
+    {
+        $stubFiles = glob(dirname($packagePath) . '/stubs/GrumPHP/*/*.stub.php');
+        if ($stubFiles === false) {
+            return $data;
+        }
+
+        sort($stubFiles);
+        $data['parameters']['scanFiles'] = array_values(array_unique(array_merge(
+            $data['parameters']['scanFiles'] ?? [],
+            $stubFiles
+        )));
+
+        return $data;
     }
 
     /**
